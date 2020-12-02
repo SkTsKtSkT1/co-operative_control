@@ -9,7 +9,7 @@ for n=1:length(t)
         for j=1:size(A)
             u1(i,n)=u1(i,n)-A(i,j)*(tao(i,n)-tao(j,n));
         end
-        u(i,n)=u1(i,n)+0.2*abs(sin(2*pi*0.01*(n-1)));
+        u(i,n)=u1(i,n)+0.2*abs(sin(0.01*(n-1)));
     end
     for i=1:size(L)
         tao(i,n+1)=tao(i,n)+0.01*u(i,n);

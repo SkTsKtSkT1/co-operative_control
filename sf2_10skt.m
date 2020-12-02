@@ -10,8 +10,8 @@ for n=1:length(t)
             u(i,n)=u(i,n)-A(i,j)*(X(i,n)-X(j,n));
             utao(i,n)= utao(i,n)-A(i,j)*(tao(i,n)-tao(j,n));
         end
-        u(i,n)=u(i,n)+abs(1/5*sin(2*pi*0.001*(n-1)));
-        utao(i,n)=utao(i,n)+abs(1/4*cos(2*pi*0.001*(n-1)));
+        u(i,n)=u(i,n)+abs(1/5*sin(0.001*(n-1)));
+        utao(i,n)=utao(i,n)+abs(1/4*cos(0.001*(n-1)));
         X(i,n+1)=X(i,n)+u(i,n)*0.001;
         tao(i,n+1)=tao(i,n)+utao(i,n)*0.001;
      end
