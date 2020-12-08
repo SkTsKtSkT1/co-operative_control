@@ -76,9 +76,8 @@ for n=1:length(t)
         
         sumtotal=sumomega+sumqv;  %每次迭代都会更新
         test1=Dg*w(3*k-2:3*k,n);
-
-       
-        tao(3*k-2:3*k,1)=-Kg*[transpose(qs_quatParts(1,2:4))]-Dg*w(3*k-2:3*k,n)-sumtotal(3*k-2:3*k,1);
+     
+        tao(3*k-2:3*k,1)=cross(w(3*k-2:3*k,n),J(:,:,k)*w(3*k-2:3*k,n))-J(:,:,k)*sumtotal(3*k-2:3*k,1);
         dw(3*k-2:3*k,1)=-inv(J(:,:,k))*(cross(w(3*k-2:3*k,n),J(:,:,k)*w(3*k-2:3*k,n))-tao(3*k-2:3*k,1));%qingling
         w(3*k-2:3*k,n+1)=dw(3*k-2:3*k,1)*f+w(3*k-2:3*k,n); %更新w
         
